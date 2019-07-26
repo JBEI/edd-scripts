@@ -104,6 +104,6 @@ def main():
     return 0
 
 
-if __name__ == '__main__' or __name__ == 'jbei.edd.rest.scripts.basic_rest_queries':
+if __name__ == '__main__' or __name__ == 'edd.rest.scripts.basic_rest_queries':
     result = main()
     exit(result)

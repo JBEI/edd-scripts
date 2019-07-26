@@ -42,7 +42,7 @@ from jbei.rest.clients.edd.api import EddApi
 from jbei.rest.clients.ice.api import IceApi, Strain as IceStrain
 from jbei.rest.clients.ice.api import ICE_ENTRY_TYPES
 from jbei.rest.utils import is_url_secure
-from jbei.utils import to_human_relevant_delta, UserInputTimer, session_login, TYPICAL_UUID_PATTERN
+from utils import to_human_relevant_delta, UserInputTimer, session_login, TYPICAL_UUID_PATTERN
 
 from . import settings
 from .settings import (EDD_URL, EDD_PRODUCTION_HOSTNAMES, ICE_PRODUCTION_HOSTNAMES, ICE_URL,
@@ -1780,6 +1780,6 @@ def verify_ice_admin_privileges(ice, ice_username):
     return True
 
 
-if __name__ == '__main__' or __name__ == 'jbei.edd.rest.scripts.maintain_ice_links':
+if __name__ == '__main__' or __name__ == 'edd.rest.scripts.maintain_ice_links':
     result = main()
     exit(result)

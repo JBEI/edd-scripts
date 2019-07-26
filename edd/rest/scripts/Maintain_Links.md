@@ -65,7 +65,7 @@ done before using this script on the production databases:
 
 __Options__: there are many, mostly for helping to test the script in various environments or in 
 different stages of development.  It's best to just run 
-`python -m jbei.edd.rest.scripts.maintain_ice_links` and read the help.  
+`python -m edd.rest.scripts.maintain_ice_links` and read the help.  
 
 __Runtime__:
 The script's runtime is heavily dependent on the amount of data in the EDD/ICE databases, as well as 
@@ -165,7 +165,7 @@ configuration, then run the script to drop and restore both EDD and ICE database
 	
 ### Configure which target deployments are searched/modified by the script
 
-Edit jbei.edd.rest.scripts.local_settings.py to set target deployments, for example, for local 
+Edit edd.rest.scripts.local_settings.py to set target deployments, for example, for local 
 EDD/ICE instances:
 
     LOCAL_DOCKER_EDD_URL = 'https://192.168.99.100:443'
@@ -195,7 +195,7 @@ property for the EDD/ICE client side API instances created just following the in
 The base level API code should raise Exceptions if any real mutator methods accidentally get called 
 (e.g. because of easy-to-miss maintenance oversights)
 
-    python -m jbei.edd.rest.scripts.maintain_ice_links -username mark.forrer \
+    python -m edd.rest.scripts.maintain_ice_links -username mark.forrer \
            -dry_run -scan_ice_entries -test_edd_url https://edd.jbei.org/ 2>&1 | tee 1-dry-run.txt
 
 ### Run the script (actual run)
@@ -204,7 +204,7 @@ the script to identify logic errors.  Also consider checking for unexpected diff
 results from the dry run mode (which is a bit brittle) Comparisons of this type nearly always turn 
 up bugs that would otherwise go undetected.
 
-    python -m jbei.edd.rest.scripts.maintain_ice_links -username mark.forrer -scan_ice_entries \
+    python -m edd.rest.scripts.maintain_ice_links -username mark.forrer -scan_ice_entries \
            -test_edd_url https://edd.jbei.org/ 2>&1 | tee 2-first-run.txt
 	
 ### Re-Run the script
@@ -212,7 +212,7 @@ Do a second full run of the script to make sure all of the changes attempted by 
 actually stuck. A lot of effort went into writing the consistency checks that cause the script to
 update ICE's links. Use them to help.
 
-    python -m jbei.edd.rest.scripts.maintain_ice_links -username mark.forrer -scan_ice_entries \
+    python -m edd.rest.scripts.maintain_ice_links -username mark.forrer -scan_ice_entries \
           -test_edd_url https://edd.jbei.org/ 2>&1 | tee 3-second-run.txt
 	
 ### Consider repeating tests on test databases

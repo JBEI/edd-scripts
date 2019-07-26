@@ -11,7 +11,7 @@ from six import string_types
 from six.moves.urllib.parse import urlparse
 from threading import Timer
 
-from jbei.utils import DOCKER_HOST_ENV_VARIABLE
+from utils import DOCKER_HOST_ENV_VARIABLE
 
 
 logger = logging.getLogger(__name__)

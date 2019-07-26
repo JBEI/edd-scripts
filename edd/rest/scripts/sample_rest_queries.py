@@ -37,7 +37,7 @@ from jbei.rest.clients.edd.api import EddApi
 from jbei.rest.clients.ice.api import IceApi
 from jbei.rest.clients.ice.api import Strain as IceStrain
 from jbei.rest.clients.ice.utils import build_entry_ui_url
-from jbei.utils import session_login, UserInputTimer
+from utils import session_login, UserInputTimer
 from . import settings
 
 dictConfig(settings.LOGGING)
@@ -370,7 +370,7 @@ class ResultCache(object):
 
     @staticmethod
     def _cache_by_pk(input, dest_dict):
-        if isinstance(input, collections.Sequence):
+        if isinstance(input, collections.abc.Sequence):
             for val in input:
                 dest_dict[val.pk] = val
             return
@@ -562,7 +562,7 @@ def parse_search_settings(args):
 
     global_search_params = SearchParameters()
     if settings_file:
-        search_settings = imp.load_source('jbei.edd.rest.scripts.sample_query_settings',
+        search_settings = imp.load_source('edd.rest.scripts.sample_query_settings',
                                           settings_file)
 
         _STUDY_SLUG_SETTING = 'STUDY_SLUG'
@@ -1532,6 +1532,6 @@ class SampleQuery:
         self.result_cache.print_summary()
 
 
-if __name__ == '__main__' or __name__ == 'jbei.edd.rest.scripts.sample_rest_queries':
+if __name__ == '__main__' or __name__ == 'edd.rest.scripts.sample_rest_queries':
     result = main()
     exit(result)

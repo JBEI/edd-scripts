@@ -19,7 +19,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 from jbei.rest.auth import EddSessionAuth
 from jbei.rest.clients.edd.api import EddApi
 from jbei.rest.utils import is_url_secure
-from jbei.utils import session_login, TerminalFormats, UserInputTimer
+from utils import session_login, TerminalFormats, UserInputTimer
 from . import settings
 
 now = arrow.utcnow()
@@ -40,7 +40,7 @@ def main():
     ############################################################################################
     parser = argparse.ArgumentParser(
             description="Queries EDD's REST API to for the quarterly number of studies created.",
-            usage='python -m jbei.edd.rest.scripts.%(prog)s [options]',)
+            usage='python -m edd.rest.scripts.%(prog)s [options]',)
 
     parser.add_argument('-username',
                         '-u',
@@ -157,6 +157,6 @@ def main():
             print('\t%d' % created_count)
 
 
-if __name__ == '__main__' or __name__ == 'jbei.edd.rest.scripts.get_usage_statistics':
+if __name__ == '__main__' or __name__ == 'edd.rest.scripts.get_usage_statistics':
     result = main()
     exit(result)

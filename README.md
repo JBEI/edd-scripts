@@ -88,7 +88,7 @@ __Sample client-side use of EddApi__
 
     from jbei.rest.auth import EddSessionAuth
     from jbei.rest.clients import EddApi
-    from jbei.utils import session_login
+    from utils import session_login
     
     # prompt terminal user for credentials and log in
     edd_login_details = session_login(EddSessionAuth, EDD_URL, 'EDD',
@@ -128,14 +128,14 @@ parameter for more detailed information on the available options.
 #### Running Command Line Tools
 
 Running an example script from the base EDD directory: 
-`python -m jbei.edd.rest.scripts.sample_rest_queries`
+`python -m edd.rest.scripts.sample_rest_queries`
 
 #### Configuring target URL's for the sample scripts
 
 If you're running one of the sample scripts that targets a specific EDD and/or ICE deployment, you 
 may want to create a configuration file to adjust which URL's are used to access EDD and ICE.
 
-* `jbei/edd/rest/scripts/settings/` contains the default settings used by all the scripts in this
+* `edd/rest/scripts/settings/` contains the default settings used by all the scripts in this
  directory. If you need to change the defaults in this file, create a `local.py` in the same 
  directory, and any values defined in your `local.py` will override the defaults, but won't show 
  up as edits when you use `git` to check out the latest code. 
