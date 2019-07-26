@@ -18,7 +18,7 @@ from requests.packages.urllib3.exceptions import InsecureRequestWarning
 
 from jbei.rest.auth import EddSessionAuth
 from jbei.rest.clients.edd.api import EddApi
-from jbei.rest.utils import is_url_secure
+from rest.utils import is_url_secure
 from utils import session_login, TerminalFormats, UserInputTimer
 from . import settings
 
